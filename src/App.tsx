@@ -1,41 +1,12 @@
-import { useRef } from "react";
-import Plyr, { APITypes } from "plyr-react";
-import "plyr-react/plyr.css";
 
-const videoId = "yWtFb9LJs3o";
-const provider = "youtube";
-const videoOptions = undefined;
+import './App.scss';
+import PlyrComponent from './components/PlyrComponent';
 
-const PlyrComponent = () => {
-  const ref = useRef<APITypes>(null);
 
-  const enterVideo = () => {
-    (ref.current?.plyr as Plyr)?.fullscreen.enter();
-  };
-
-  const plyrVideo =
-    videoId && provider ? (
-      <Plyr
-        ref={ref}
-        source={{
-          type: "video",
-          sources: [
-            {
-              src: videoId,
-              provider: provider
-            }
-          ]
-        }}
-        options={videoOptions}
-      />
-    ) : null;
-
+function App() {
   return (
-    <div className="player__wrapper">
-      {plyrVideo}
-      <button onClick={enterVideo}>fullscreen</button>
-    </div>
+    <PlyrComponent />
   );
-};
+}
 
-export default PlyrComponent;
+export default App;
