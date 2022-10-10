@@ -15,17 +15,11 @@ const PlyrComponent = () => {
   const ref = useRef<APITypes>(null);
   console.log(ref);
 
-  // const enterVideo = () => {
-  //   (ref.current?.plyr as Plyr)?.fullscreen.enter();
-  // };
-
   const plyrVideo =
     videoId && provider ? (
 
       <Plyr 
         ref={ref}
-      
-       
         source={{
           type: "video",
           title: 'Example title',
@@ -37,7 +31,6 @@ const PlyrComponent = () => {
             }
           ]
         }}
-
         options={{
           
           // languages: ['ru', 'en', 'be', 'pl'],
@@ -47,22 +40,18 @@ const PlyrComponent = () => {
           quality: { default: 576, options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240] },
           previewThumbnails: { enabled: false, src: '' },
           markers: { enabled: false, points: [] }
-
-          
         }}
-        
-        // options={videoOptions}
         
         
       />
     ) : null;
-    // console.log(videoOptions);
+    
   return (
     <div className={styles.root}>
       <div className={styles.player__wrapper}>
       <h1 className={styles.description}>Plyr</h1>
       {plyrVideo}
-      {/* <button onClick={enterVideo}>fullscreen</button> */}
+    
       </div>
       
     </div>
